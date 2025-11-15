@@ -1,0 +1,99 @@
+
+    (function () {
+      const authModal = document.getElementById('authModal');
+      const authTitle = document.getElementById('authTitle');
+      const authForm = document.getElementById('authForm');
+      const toggleAuth = document.getElementById('toggleAuth');
+      const authSubmit = document.getElementById('authSubmit');
+      let mode = 'login';
+
+      toggleAuth.addEventListener('click', e => {
+        e.preventDefault();
+        mode = mode === 'login' ? 'register' : 'login';
+        authTitle.textContent = mode === 'login' ? 'Login' : 'Register';
+        authSubmit.textContent = mode === 'login' ? 'Login' : 'Register';
+        toggleAuth.textContent = mode === 'login' ? 'Create an account' : 'Already have an account? Login';
+      });
+
+      authModal.addEventListener('click', e => {
+        if (e.target === authModal) authModal.classList.remove('active');
+      });
+
+      authForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const endpoint = mode === 'login' ? '/api/auth/login' : '/api/auth/register';
+        try {
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+          });
+          const json = await res.json();
+          if (json.ok || json.success) {
+            authModal.classList.remove('active');
+            window.location.reload();
+          } else {
+            alert('❌ ' + (json.error || json.message || 'Auth failed'));
+          }
+        } catch {
+          alert('❌ Network error');
+        }
+      });
+
+      document.addEventListener('click', e => {
+        const loginBtn = e.target.closest('#authBtn,[data-open-auth]');
+        if (loginBtn) authModal.classList.add('active');
+
+        const logoutBtn = e.target.closest('#logoutBtn,[data-logout]');
+        if (logoutBtn) {
+          fetch('/api/auth/logout', { method: 'POST' }).then(() => window.location.reload());
+        }
+      });
+
+      async function checkAuthStatus() {
+        let json;
+        try {
+          const res = await fetch('/api/auth/status');
+          json = await res.json();
+        } catch {
+          return;
+        }
+
+        const headerActions = document.querySelector('.header-actions');
+        headerActions.innerHTML = '';
+
+        const user = json.user || json.username;
+        const loggedIn = json.ok && user;
+
+        if (loggedIn) {
+          const username = user.username || user;
+          const userLabel = document.createElement('span');
+          userLabel.className = 'user-label';
+          userLabel.textContent = `Logged in as ${username}`;
+
+          const dashboardBtn = document.createElement('button');
+          dashboardBtn.className = 'dashboard-btn';
+          dashboardBtn.textContent = 'Dashboard';
+          dashboardBtn.onclick = () => window.location.href = 'dashboard.html';
+
+          const logoutBtn = document.createElement('button');
+          logoutBtn.className = 'auth-btn';
+          logoutBtn.id = 'logoutBtn';
+          logoutBtn.textContent = 'Logout';
+          logoutBtn.setAttribute('data-logout', '1');
+
+          headerActions.append(userLabel, dashboardBtn, logoutBtn);
+        } else {
+          const loginBtn = document.createElement('button');
+          loginBtn.className = 'auth-btn';
+          loginBtn.id = 'authBtn';
+          loginBtn.textContent = 'Login / Register';
+          loginBtn.setAttribute('data-open-auth', '1');
+          headerActions.append(loginBtn);
+        }
+      }
+
+      window.addEventListener('DOMContentLoaded', checkAuthStatus);
+    })();
