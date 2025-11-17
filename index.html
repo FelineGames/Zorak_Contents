@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sandbox Projects</title>
+
+<meta name="description" content="Minecraft/Cubyz/Bloxd Content all in one place!">
+
+
+<style>
+  :root{
+    --bg:#0b0b0f;
+    --panel:#0f0f14;
+    --muted:#bfc6cf;
+    --accent:#8ce0ff;
+    --card-border: rgba(255,255,255,0.04);
+    --radius:12px;
+    --pixel: 2px;
+    --gutter:20px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,#06060a 0%, #0b0b0f 100%);color:#eee;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+  a{color:var(--accent);text-decoration:none}
+  img{max-width:100%;display:block}
+
+  header{padding:28px 16px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-bottom:1px solid rgba(255,255,255,0.03)}
+  .wrap{max-width:1100px;margin:32px auto;padding:0 18px}
+  .brand{display:flex;gap:14px;align-items:center}
+
+  header h1{font-size:20px;margin:0}
+  header p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+
+  .top-links{margin-left:auto;display:flex;gap:10px}
+  .btn {
+    background:transparent;border:1px solid rgba(255,255,255,0.06);
+    padding:8px 12px;border-radius:8px;font-size:13px;color:var(--muted);
+    display:inline-flex;gap:8px;align-items:center;
+  }
+  .btn.primary{background:linear-gradient(90deg,#0d6efd11,#8ce0ff11);border-color:rgba(140,224,255,0.12);color:var(--accent)}
+
+  .hero{margin:28px 0 24px;padding:28px;border-radius:14px;background:
+    linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.006));
+    border:1px solid rgba(255,255,255,0.02);display:flex;gap:18px;align-items:center;
+    box-shadow: 0 8px 30px rgba(2,6,12,0.6);
+  }
+  .hero .left{flex:1}
+  .hero h2{font-family:"Press Start 2P", "Courier New", monospace;margin:0 0 8px;font-size:20px;letter-spacing:0.6px}
+  .hero p{margin:0;color:var(--muted)}
+
+  .projects{
+    display:flex;flex-direction:column;gap:18px;margin-top:18px;
+  }
+  .card{
+    display:flex;flex-direction:row;gap:18px;align-items:flex-start;
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+    border:1px solid var(--card-border);padding:16px;border-radius:12px;
+  }
+  .thumb{
+    width:140px;height:100px;border-radius:8px;flex:0 0 100px;
+    overflow:hidden;border:1px solid rgba(255,255,255,0.02);
+    background-size:cover;
+    background-position:center;
+  }
+  .card .meta{flex:1}
+  .card h3{margin:0 0 6px;font-family:"Press Start 2P", monospace;font-size:16px}
+  .card p{margin:0 0 12px;color:var(--muted);font-size:14px}
+  .card .links{display:flex;gap:10px;flex-wrap:wrap}
+
+  .revamp h3{color:red}
+  .reworked h3{color:purple}
+  .better h3{color:hotpink}
+
+  .link-btn{
+    padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);
+    background:rgba(255,255,255,0.01);font-size:13px;color:var(--muted);
+  }
+
+  footer{margin:48px 0 80px;color:var(--muted);text-align:center;font-size:13px}
+
+  @media (max-width:760px){
+    .card{flex-direction:column;align-items:stretch}
+    .thumb{width:100%;height:160px}
+    .top-links{display:none}
+    header{padding:18px}
+  }
+
+  .pixel-grid{width:100%;height:6px;background:
+    linear-gradient(90deg,#0000 0 10px, rgba(255,255,255,0.02) 10px 11px) repeat-x;
+    margin-top:10px;border-radius:2px;opacity:0.7}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="display:flex;align-items:center">
+
+    <!-- Updated top icon -->
+    <div class="brand">
+      <div class="logo" style="
+        background: url('./Sandbox Projects - Github_files/sandbox_project.png');
+        background-size: cover;
+        background-position: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 8px;
+      "></div>
+
+      <div>
+        <h1>Sandbox Projects</h1>
+        <p>Mods, Texture Packs and More - For MC / Cubyz / Bloxd</p>
+      </div>
+    </div>
+
+    <div class="top-links" style="margin-left:auto">
+      <a class="btn" href="https://github.com/FelineGames/" target="_blank">GitHub</a>
+      <a class="btn" href="https://youtube.com/@ZorakAnimations" target="_blank">YouTube</a>
+      <a class="btn primary" href="#projects">Browse Projects</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="left">
+<h2></h2>
+
+<div style="margin: 0 0 14px 0;">
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Search projects..." 
+    style="
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02);
+      color: var(--muted);
+      font-size: 14px;
+      outline: none;
+    "
+  >
+</div>
+
+<p class="muted">  Author: BloxdWinter</p>
+      <div class="pixel-grid"></div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+
+    <!-- Revamp -->
+    <article class="card revamp">
+      <div class="thumb" style="background-image:url('./Sandbox Projects - Github_files/revamp.png');"></div>
+      <div class="meta">
+        <h3>Minecraft Revamp</h3>
+        <p>Vanilla Edit 16x Pack For Minecraft Bedrock Edition (Original)</p>
+        <div class="links">
+          <a class="link-btn" href="https://drive.google.com/file/d/1qZcss1lNc-dJA0US1afVR2mw8YbEWl-i/view?usp=drive_link" target="_blank">Learn More</a>
+          <a class="link-btn" href="https://drive.google.com/drive/folders/1KNkNlnDMWrAB21ejKd76IBIt455i4uZu?usp=drive_link" target="_blank">Archives</a>
+          <a class="link-btn" href="https://drive.google.com/file/d/1nkeNsotpb55hLlqozGzAPZG1MSpd7Vry/view?usp=drive_link" target="_blank">Get</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Reworked -->
+    <article class="card reworked">
+      <div class="thumb" style="background-image:url('./Sandbox Projects - Github_files/reworked.png');"></div>
+      <div class="meta">
+        <h3>Minecraft Reworked</h3>
+        <p>Tweaked Vanilla Textures (Clean 16x edition)</p>
+        <div class="links">
+          <a class="link-btn" href="https://drive.google.com/drive/folders/1XvQEh9IjF5jisiu4fnPMCMMzTtSuzs-6?usp=drive_link" target="_blank">Archives</a>
+          <a class="link-btn" href="https://drive.google.com/file/d/1n1HkAnZ46cyJKf7DBcuEH5G2dNvMyJXl/view?usp=drive_link" target="_blank">Get</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Better MC SE -->
+    <article class="card better">
+      <div class="thumb" style="background-image:url('./Sandbox Projects - Github_files/mc_specials.png');"></div>
+      <div class="meta">
+        <h3>Better Minecraft (Special Edition)</h3>
+        <p>The cursed modern look of Minecraft Bedrock Edition.</p>
+        <div class="links">
+          <a class="link-btn" href="https://drive.google.com/file/d/1OaWyYO_CqvoOE2SMnFOT-WaAmZEGcojk/view?usp=drive_link" target="_blank">v1.0.5</a>
+          <a class="link-btn" href="https://drive.google.com/file/d/13yhmQV_DyjfMfYATsJ5JGY86w1AlGT2d/view?usp=drive_link" target="_blank">v1.5.0</a>
+        </div>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Hosted on Github (Free, Forever)</p>
+  </div>
+</footer>
+<script>
+  const searchInput = document.getElementById("searchInput");
+  const cards = document.querySelectorAll(".card");
+
+  searchInput.addEventListener("input", () => {
+    const text = searchInput.value.toLowerCase();
+
+    cards.forEach(card => {
+      const title = card.querySelector("h3").textContent.toLowerCase();
+      const desc = card.querySelector("p").textContent.toLowerCase();
+
+      if (title.includes(text) || desc.includes(text)) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
