@@ -18,6 +18,14 @@
     --radius:12px;
     --pixel: 2px;
     --gutter:20px;
+ .logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  flex: 0 0 56px;
+    }
   }
   *{box-sizing:border-box}
   html,body{height:100%;margin:0;background:linear-gradient(180deg,#06060a 0%, #0b0b0f 100%);color:#eee;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
@@ -99,15 +107,7 @@
 
     <!-- Updated top icon -->
     <div class="brand">
-      <div class="logo" style="
-        background: url('./Sandbox Projects - Github_files/sandbox_project.png');
-        background-size: cover;
-        background-position: center;
-        width: 56px;
-        height: 56px;
-        border-radius: 8px;
-      "></div>
-
+<div class="logo" style="background-image:url('./Sandbox Projects - Github_files/sandbox_project.png');"></div>
       <div>
         <h1>Sandbox Projects</h1>
         <p>Mods, Texture Packs and More - For MC / Cubyz / Bloxd</p>
@@ -131,7 +131,7 @@
   <input 
     type="text" 
     id="searchInput" 
-    placeholder="Search projects..." 
+    placeholder="Search Content..." 
     style="
       width: 100%;
       padding: 12px;
@@ -258,6 +258,7 @@
 
 </body>
 </html>
+
 
 
 
